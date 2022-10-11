@@ -8,20 +8,26 @@
     
     
     
-    <link rel="../img/favicon.ico">
+    <link rel="shortcut icon" href="../img/favicon.ico">
 
     
     <title>Full documentation - Combine</title>
     
 
-    <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/v4-shims.css">
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack.min.css">
-    <link href='//fonts.googleapis.com/css?family=PT+Sans:400,400italic,700,700italic&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href='//rsms.me/inter/inter.css' rel='stylesheet' type='text/css'>
     <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,600,700&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
     <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
     <link href="../css/base.min.css" rel="stylesheet">
     <link href="../css/cinder.min.css" rel="stylesheet">
-    <link href="../css/highlight.min.css" rel="stylesheet">
+
+    
+        
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/styles/github.min.css">
+        
+    
     <link href="../mystyle.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -29,15 +35,6 @@
             <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
             <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
         <![endif]-->
-
-    <script src="//ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
-    <script>
-    WebFont.load({
-        google: {
-            families: ['Open Sans', 'PT Sans']
-        }
-    });
-    </script>
 
     
 
@@ -62,7 +59,9 @@
 
             <!-- Main title -->
 
-            <a class="navbar-brand" href="..">Combine</a>
+            
+              <a class="navbar-brand" href="..">Combine</a>
+            
         </div>
 
         <!-- Expanded navigation -->
@@ -132,6 +131,18 @@
 </li>
 
                         
+                            
+<li >
+    <a href="../part3/validation/">Validating datacards</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../part3/debugging/">Debugging fit failures</a>
+</li>
+
+                        
                         </ul>
                     </li>
                 
@@ -139,6 +150,33 @@
                 
                     <li >
                         <a href="../part4/usefullinks/">Links & FAQ</a>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Tutorials <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../part5/roofit/">RooFit Basics</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../part5/longexercise/">Exercise: main features</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../part5/longexerciseanswers/">Solutions to long exercise</a>
+</li>
+
+                        
+                        </ul>
                     </li>
                 
                 
@@ -241,7 +279,7 @@ The option <strong><code>--proposal</code></strong> controls the way new points 
 By default, HybridNew computes hybrid bayesian-frequentist limits. If one specifies the command line option <strong><code>--freqentist</code></strong> then it will instead compute the fully frequentist limits.</p>
 <p><strong>Rule</strong> (option <strong><code>--rule</code></strong>)
 The rule defines how the distribution of the test statistics is used to compute a limit. When using the <em>CL&lt;sub&gt;s+b&lt;/sub&gt;</em> rule the limit to the value of the signal strength for which 95% of the pseudo-experiments give a result more signal-like than the current one, &lt;nobr&gt;<em>P(x &lt; x&lt;sub&gt;obs&lt;/sub&gt;|r*s+b) = 1 - CL</em>&lt;/nobr&gt;. For the more conservative <em>CL&lt;sub&gt;s&lt;/sub&gt;</em> rule, the limit is set by the condition &lt;nobr&gt;<em>P(x &lt; x&lt;sub&gt;obs&lt;/sub&gt;|r*s+b) /P(x &lt; x&lt;sub&gt;obs&lt;/sub&gt;|b) = 1 - CL</em>&lt;/nobr&gt; .
-<strong>The default rule is *CL&lt;sub&gt;s&lt;/sub&gt;</strong>*.</p>
+<strong>The default rule is <em>CL&lt;sub&gt;s&lt;/sub&gt;</em></strong>.</p>
 <p><strong>Test statistics</strong> (option <strong><code>--testStat</code></strong>)
 The <strong>test statistics</strong> is the measure of how signal-like or background-like is an observation. The following test statistics are provided:</p>
 <ul>
@@ -331,7 +369,7 @@ The other options, that you can get executing the program with <strong><code>--h
 </code></pre>
 <h3 id="shell-script-for-grid-worker-nodes">Shell script for GRID Worker Nodes</h3>
 <p>CRAB is designed mainly to provide automatic <strong><code>cmsRun</code></strong> job splitting providing the number of jobs one wants to run, and the number of 'events' in total one wants to process.The total number of toy MC we want to run. The maximum number of events is passed to the application to be executed via the variable <strong><code>$MaxEvents</code></strong>. In our case, we will use for convenience <strong><code>$MaxEvents</code></strong> as the number of toy MC to run per job.</p>
-<p>The script <strong><code>[[https://github.com/cms-analysis/HiggsAnalysis-CombinedLimit/blob/master/test/combine_crab.sh][combine_crab.sh]]</code></strong> runs the combiner code with the proper options, and prepares the output to be retrieved after the run completion on the Worker Nodes. It takes as argument the job indes (<strong><code>$1</code></strong>), which we use as random seed. The main elements there are running the combiner and packing the output for final retrieval: <span class="twiki-macro SYNTAX" syntax="sh"></span> echo "job number: seed #<span><span class="MathJax_Preview">i with <span><span class="MathJax_Preview">n toys" ./combine model.root -t</span><script type="math/tex">n toys" ./combine model.root -t</script></span>n -sn -s</span><script type="math/tex">i with <span><span class="MathJax_Preview">n toys" ./combine model.root -t</span><script type="math/tex">n toys" ./combine model.root -t</script></span>n -sn -s</script></span>i &gt;&amp; log.txt mv *.root outputToy/ mv log.txt outputToy/ echo "pack the results" tar cvfz outputToy.tgz outputToy/ <span class="twiki-macro ENDSYNTAX"></span></p>
+<p>The script <strong><code>[[https://github.com/cms-analysis/HiggsAnalysis-CombinedLimit/blob/master/test/combine_crab.sh][combine_crab.sh]]</code></strong> runs the combiner code with the proper options, and prepares the output to be retrieved after the run completion on the Worker Nodes. It takes as argument the job indes (<strong><code>$1</code></strong>), which we use as random seed. The main elements there are running the combiner and packing the output for final retrieval: <span class="twiki-macro SYNTAX" syntax="sh"></span> echo "job number: seed #<span class="arithmatex"><span class="MathJax_Preview">i with <span class="arithmatex"><span class="MathJax_Preview">n toys" ./combine model.root -t</span><script type="math/tex">n toys" ./combine model.root -t</script></span>n -sn -s</span><script type="math/tex">i with <span class="arithmatex"><span class="MathJax_Preview">n toys" ./combine model.root -t</span><script type="math/tex">n toys" ./combine model.root -t</script></span>n -sn -s</script></span>i &gt;&amp; log.txt mv *.root outputToy/ mv log.txt outputToy/ echo "pack the results" tar cvfz outputToy.tgz outputToy/ <span class="twiki-macro ENDSYNTAX"></span></p>
 <h3 id="crab-configuration-script">CRAB configuration script</h3>
 <p>Then, the script <code>= [[https://github.com/cms-analysis/HiggsAnalysis-CombinedLimit/blob/master/test/combine_crab.cfg][combine_crab.cfg]]=</code> sets how many jobs to run and how many toys per job. And finally, which files to ship to the Worker Nodes (the executable itself and the ROOT workspace), and which file to retrieve (the packed output): <span class="twiki-macro SYNTAX" syntax="sh"></span> [CRAB] jobtype = cmssw scheduler = glite</p>
 <p>[CMSSW] output_file = outputToy.tgz datasetpath=None pset=None total_number_of_events=100 number_of_jobs=10</p>
@@ -454,19 +492,29 @@ The other options, that you can get executing the program with <strong><code>--h
         
     </div>
 
-    <footer class="col-md-12 text-center">
-        
-        <hr>
-        <p>
-        <small>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p></small>
+    
+      <footer class="col-md-12 text-center">
+          
+          
+            <hr>
+            <p>
+            <small>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</small>
+            </p>
+          
 
-        
-        
-    </footer>
+          
+          
+      </footer>
+    
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="../js/bootstrap-3.0.3.min.js"></script>
-    <script src="../js/highlight.pack.js"></script>
+
+    
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/highlight.min.js"></script>
+        
     <script>hljs.initHighlightingOnLoad();</script>
+    
+
     <script>var base_url = ".."</script>
     
     <script src="../js/base.js"></script>
@@ -477,8 +525,11 @@ The other options, that you can get executing the program with <strong><code>--h
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
                 <h4 class="modal-title" id="searchModalLabel">Search</h4>
-                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
             </div>
             <div class="modal-body">
                 <p>

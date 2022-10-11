@@ -8,20 +8,26 @@
     
     
     
-    <link rel="../../img/favicon.ico">
+    <link rel="shortcut icon" href="../../img/favicon.ico">
 
     
     <title>Setting up the environment and installation - Combine</title>
     
 
-    <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/v4-shims.css">
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack.min.css">
-    <link href='//fonts.googleapis.com/css?family=PT+Sans:400,400italic,700,700italic&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href='//rsms.me/inter/inter.css' rel='stylesheet' type='text/css'>
     <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,600,700&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
     <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
     <link href="../../css/base.min.css" rel="stylesheet">
     <link href="../../css/cinder.min.css" rel="stylesheet">
-    <link href="../../css/highlight.min.css" rel="stylesheet">
+
+    
+        
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/styles/github.min.css">
+        
+    
     <link href="../../mystyle.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -29,15 +35,6 @@
             <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
             <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
         <![endif]-->
-
-    <script src="//ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
-    <script>
-    WebFont.load({
-        google: {
-            families: ['Open Sans', 'PT Sans']
-        }
-    });
-    </script>
 
     
 
@@ -62,7 +59,9 @@
 
             <!-- Main title -->
 
-            <a class="navbar-brand" href="../..">Combine</a>
+            
+              <a class="navbar-brand" href="../..">Combine</a>
+            
         </div>
 
         <!-- Expanded navigation -->
@@ -132,6 +131,18 @@
 </li>
 
                         
+                            
+<li >
+    <a href="../../part3/validation/">Validating datacards</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../part3/debugging/">Debugging fit failures</a>
+</li>
+
+                        
                         </ul>
                     </li>
                 
@@ -139,6 +150,33 @@
                 
                     <li >
                         <a href="../../part4/usefullinks/">Links & FAQ</a>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Tutorials <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../part5/roofit/">RooFit Basics</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../part5/longexercise/">Exercise: main features</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../part5/longexerciseanswers/">Solutions to long exercise</a>
+</li>
+
+                        
+                        </ul>
                     </li>
                 
                 
@@ -182,21 +220,19 @@
 <p>You can find the latest releases on github under <a href="https://github.com/cms-analysis/HiggsAnalysis-CombinedLimit/releases">https://github.com/cms-analysis/HiggsAnalysis-CombinedLimit/releases</a></p>
 <h3 id="root6-slc6-release-cmssw_8_1_x-recommended-version">ROOT6 SLC6 release <code>CMSSW_8_1_X</code> - recommended version</h3>
 <p>Setting up the environment (once):</p>
-<pre><code class="sh">export SCRAM_ARCH=slc6_64_gcc530
+<pre><code class="language-sh">export SCRAM_ARCH=slc6_amd64_gcc530
 cmsrel CMSSW_8_1_0
 cd CMSSW_8_1_0/src
 cmsenv
 git clone https://github.com/cms-analysis/HiggsAnalysis-CombinedLimit.git HiggsAnalysis/CombinedLimit
 cd HiggsAnalysis/CombinedLimit
 </code></pre>
-
 <p>Update to a reccomended tag - currently the reccomended tag is <strong>v7.0.12</strong>:</p>
-<pre><code class="sh">cd $CMSSW_BASE/src/HiggsAnalysis/CombinedLimit
+<pre><code class="language-sh">cd $CMSSW_BASE/src/HiggsAnalysis/CombinedLimit
 git fetch origin
 git checkout v7.0.12
 scramv1 b clean; scramv1 b # always make a clean build
 </code></pre>
-
 <p>You can generate a diff of any two tags (eg for <code>v7.0.8</code> and <code>v7.0.6</code>) by using following the url:</p>
 <p><a href="https://github.com/cms-analysis/HiggsAnalysis-CombinedLimit/compare/v7.0.6...v7.0.7">https://github.com/cms-analysis/HiggsAnalysis-CombinedLimit/compare/v7.0.6...v7.0.7</a></p>
 <p>Replace the tag names in the url to any tags you which to compare.</p>
@@ -213,7 +249,7 @@ scramv1 b clean; scramv1 b # always make a clean build
 </ol>
 <p>You will now be able to browse your fork of the repository from <a href="https://github.com/your-github-user-name/HiggsAnalysis-CombinedLimit">https://github.com/your-github-user-name/HiggsAnalysis-CombinedLimit</a></p>
 <h3 id="recommended-way-to-develop-a-feature-in-a-branch">Recommended way to develop a feature (in a branch)</h3>
-<pre><code class="sh"># get the updates of the master branch of the remote repository
+<pre><code class="language-sh"># get the updates of the master branch of the remote repository
 git fetch upstream
 
 # branch straight off the upstream master
@@ -232,44 +268,50 @@ git rebase upstream/81x-root606
 # fix any conflicts
 git push origin feature_name_branch
 </code></pre>
-
 <p>And proceed to make a pull request from the branch you created.</p>
 <h4 id="committing-changes-to-your-repository">Committing changes to your repository</h4>
-<pre><code class="sh">git add ....
+<pre><code class="language-sh">git add ....
 git commit -m &quot;....&quot;
 git push
 </code></pre>
-
 <p>You can now make a pull request to the repository.</p>
 <h2 id="combine-tool">Combine Tool</h2>
 <p>An additional tool for submitting combine jobs to batch/crab, developed originally for HiggsToTauTau. Since the repository contains a certain amount of analysis-specific code, the following scripts can be used to clone it with a sparse checkout for just the core <a href="https://github.com/cms-analysis/CombineHarvester/blob/master/CombineTools/"><code>CombineHarvester/CombineTools</code></a> subpackage, speeding up the checkout and compile times:</p>
 <p>git clone via ssh:</p>
-<pre><code class="sh">bash &lt;(curl -s https://raw.githubusercontent.com/cms-analysis/CombineHarvester/master/CombineTools/scripts/sparse-checkout-ssh.sh)
+<pre><code class="language-sh">bash &lt;(curl -s https://raw.githubusercontent.com/cms-analysis/CombineHarvester/master/CombineTools/scripts/sparse-checkout-ssh.sh)
 </code></pre>
-
 <p>git clone via https:</p>
-<pre><code class="sh">bash &lt;(curl -s https://raw.githubusercontent.com/cms-analysis/CombineHarvester/master/CombineTools/scripts/sparse-checkout-https.sh)
+<pre><code class="language-sh">bash &lt;(curl -s https://raw.githubusercontent.com/cms-analysis/CombineHarvester/master/CombineTools/scripts/sparse-checkout-https.sh)
 </code></pre>
-
 <p>make sure to run <code>scram</code>  to compile the <code>CombineTools</code> package.</p>
 <p>See the <a href="http://cms-analysis.github.io/CombineHarvester/"><code>CombineHarvester</code></a> documentation pages for more details on using this tool and additional features available in the full package.</p></div>
         
         
     </div>
 
-    <footer class="col-md-12 text-center">
-        
-        <hr>
-        <p>
-        <small>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p></small>
+    
+      <footer class="col-md-12 text-center">
+          
+          
+            <hr>
+            <p>
+            <small>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</small>
+            </p>
+          
 
-        
-        
-    </footer>
+          
+          
+      </footer>
+    
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="../../js/bootstrap-3.0.3.min.js"></script>
-    <script src="../../js/highlight.pack.js"></script>
+
+    
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/highlight.min.js"></script>
+        
     <script>hljs.initHighlightingOnLoad();</script>
+    
+
     <script>var base_url = "../.."</script>
     
     <script src="../../js/base.js"></script>
@@ -280,8 +322,11 @@ git push
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
                 <h4 class="modal-title" id="searchModalLabel">Search</h4>
-                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
             </div>
             <div class="modal-body">
                 <p>
